@@ -18,9 +18,19 @@ function counter_similarity(df::DataFrame)
     return sim
 end
 
-# Read CSV with space separators
-df = CSV.read("data/01.csv", DataFrame; delim=" ", ignorerepeated=true, header=[:a, :b])
+function main()
+    # Read CSV with space separators
+    df = CSV.read(
+        "data/01.csv",
+        DataFrame;
+        delim = " ",
+        ignorerepeated = true,
+        header = [:a, :b],
+    )
 
 
-println("difference: $(absolute_difference_sum(df))")
-println("similarity: $(counter_similarity(df))")
+    println("difference: $(absolute_difference_sum(df))")
+    println("similarity: $(counter_similarity(df))")
+end
+
+main()
